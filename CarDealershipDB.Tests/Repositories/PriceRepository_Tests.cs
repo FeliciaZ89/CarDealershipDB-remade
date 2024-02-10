@@ -130,7 +130,7 @@ namespace CarDealershipDB.Tests.Repositories
             // Arrange
             var priceRepository = new PriceRepository(_context);
             var priceEntity = new PriceEntity {SellingPrice = 100 };
-            _repo.Create(priceEntity);
+            priceEntity=_repo.Create(priceEntity);
 
             // Act
             var result = _repo.Delete(x => x.Id == priceEntity.Id);

@@ -72,7 +72,7 @@ public class AddressRepository_Tests
     {
            // Arrange
            var options = new DbContextOptionsBuilder<DataContext>()
-                .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString()) // Unique name
+                .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
                 .Options;
            var context = new DataContext(options);
            var repo = new Repo<AddressEntity>(context);
@@ -80,7 +80,7 @@ public class AddressRepository_Tests
 
            // Act
            var createdEntity = repo.Create(addressEntity);
-           Assert.NotNull(createdEntity); // Ensure the entity is created
+           Assert.NotNull(createdEntity);
 
            var result = repo.Get(x => x.Id == createdEntity.Id);
 

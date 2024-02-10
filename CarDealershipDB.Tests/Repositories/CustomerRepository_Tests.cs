@@ -95,7 +95,7 @@ namespace CarDealershipDB.Tests.Repositories
 
                 // Act
                 var createdEntity = _repo.Create(customerEntity);
-                Assert.NotNull(createdEntity); // Ensure the entity is created
+                Assert.NotNull(createdEntity); 
 
                 var result = _repo.Get(x => x.Id == createdEntity.Id);
 

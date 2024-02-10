@@ -20,6 +20,12 @@ public class TiresService(TiresRepository tiresRepository, PricesService pricesS
     {
         try
         {
+          
+            var existingTire = _tiresRepository.Get(t => t.Brand == brand && t.Size == size && t.Type == type && t.Seasonality == seasonality && t.Price.Price1 == price);
+            if (existingTire != null)
+            {
+                return null!;
+            }
             var pricesEntity = _pricesService.CreatePrice(price);
             var tireInventoryEntity = _tireInventoryService.CreateQuantity(quantity);
 
@@ -31,10 +37,7 @@ public class TiresService(TiresRepository tiresRepository, PricesService pricesS
                 Seasonality = seasonality,
                 PriceId = pricesEntity.Id,
                 TireInventoryId = tireInventoryEntity.Id
-
             };
-
-
 
             tiresEntity = _tiresRepository.Create(tiresEntity);
             return tiresEntity;

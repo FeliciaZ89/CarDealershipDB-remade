@@ -64,7 +64,7 @@ public class CategoryRepositoryTests
     }
 
     [Fact]
-    public void Get_ShouldRetrieve_OneCategoryByCategoryName_Return_One_CategoryName()
+    public void Get_ShouldRetrieve_OneCategory_Return_One_CategoryName()
     {
         // Arrange
         var categoryRepository = new CategoryRepository(_context);
@@ -81,7 +81,7 @@ public class CategoryRepositoryTests
     }
 
     [Fact]
-    public void Get_ShouldNotFind_OneCategoryByCategoryNAme_Return_Null()
+    public void Get_ShouldNotFind_OneCategory_Return_Null()
     {
         // Arrange
         var categoryRepository = new CategoryRepository(_context);

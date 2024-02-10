@@ -15,9 +15,19 @@ public class CustomerService(CustomerRepository customerRepository, AddressServi
     {
         try
         {
+            var existingCustomer = _customerRepository.Get(c => c.Email == email);
+
+            if (existingCustomer != null)
+            {
+               
+                Debug.WriteLine("Customer with the same email already exists.");
+                return null!;
+            }
+
             var addressEntity = _addressService.CreateAddress(streetName, postalCode, city);
             var productEntity = _productService.CreateProduct(make, model, year, categoryName, sellingPrice);
 
+       
             var customerEntity = new CustomerEntity
             {
                 FirstName = firstName,
@@ -28,15 +38,20 @@ public class CustomerService(CustomerRepository customerRepository, AddressServi
                 ProductId = productEntity.Id
             };
 
-
-
             customerEntity = _customerRepository.Create(customerEntity);
             return customerEntity;
         }
         catch (Exception ex)
-        { Debug.WriteLine(ex.Message); }
-        return null!;
+        {
+            Debug.WriteLine(ex.Message);
+
+            throw;
+           
+        }
+       
     }
+
+
 
 
 

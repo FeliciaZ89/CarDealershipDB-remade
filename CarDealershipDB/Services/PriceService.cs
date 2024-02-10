@@ -15,10 +15,10 @@ namespace CarDealershipDB.Services
         {
             try
             {
-                // Check if a price with the same selling price already exists
+               
                 var priceEntity = _priceRepository.Get(x => x.SellingPrice == sellingPrice);
 
-                // If the price doesn't exist, create a new one
+                
                 priceEntity = _priceRepository.Create(new PriceEntity { SellingPrice = sellingPrice });
 
                 return priceEntity;

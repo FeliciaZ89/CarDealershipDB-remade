@@ -13,11 +13,14 @@ namespace CarDealershipDB.Services
 
         public Price CreatePrice(decimal price1)
         {
+         
             try
             {
-                var pricesEntity = new Price { Price1 = price1 };
-                pricesEntity = _pricesRepository.Create(pricesEntity);
-                return pricesEntity;
+               
+                    var pricesEntity = new Price { Price1 = price1 };
+                    pricesEntity = _pricesRepository.Create(pricesEntity);
+                    return pricesEntity;
+                
             }
             catch (Exception ex)
             { Debug.WriteLine(ex.Message); }

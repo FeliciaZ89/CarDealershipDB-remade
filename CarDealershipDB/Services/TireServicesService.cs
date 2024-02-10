@@ -14,26 +14,31 @@ public class TireServicesService(TireServicesRepository tireserviceRepository, S
     {
         try
         {
-            var servicepricesEntity = _servicepriceService.CreateCost(cost);
+          
+            var existingTireService = _tireserviceRepository.Get(x => x.ServiceName == serviceName && x.Cost.Cost == cost);
+            if (existingTireService != null)
+            {
+                Debug.WriteLine("Tire service with the same name and cost already exists.");
+                return null!;
+            }
 
-
+            var servicePriceEntity = _servicepriceService.CreateCost(cost);
             var tireservicesEntity = new TireService
             {
                 ServiceName = serviceName,
-
-                CostId = servicepricesEntity.Id
-
+                CostId = servicePriceEntity.Id
             };
-
-
 
             tireservicesEntity = _tireserviceRepository.Create(tireservicesEntity);
             return tireservicesEntity;
         }
         catch (Exception ex)
-        { Debug.WriteLine(ex.Message); }
-        return null!;
+        {
+            Debug.WriteLine(ex.Message);
+            return null!;
+        }
     }
+
 
 
 

@@ -10,21 +10,27 @@ public class CategoryService(CategoryRepository categoryRepository)
 
     public CategoryEntity CreateCategory(string categoryName)
     {
-        try
-        {
-            var categoryEntity = _categoryRepository.Get(x => x.CategoryName == categoryName);
+            try
+            {
+            var existingCategory = _categoryRepository.Get(x => x.CategoryName == categoryName);
 
-            categoryEntity ??= _categoryRepository.Create(new CategoryEntity { CategoryName = categoryName });
+            if (existingCategory != null)
+            {
+                return existingCategory;
+            }
 
-            return categoryEntity;
-        }
-        catch (Exception ex)
-        {
-            Debug.WriteLine(ex.Message);
-        }
+            var newCategory = new CategoryEntity { CategoryName = categoryName };
+            _categoryRepository.Create(newCategory);
+
+            return newCategory;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
             return null!;
         
-    }
+      }
     public CategoryEntity GetCategoryById(int id)
     {
         try
@@ -70,18 +76,27 @@ public class CategoryService(CategoryRepository categoryRepository)
         
     }
 
-    public bool  DeleteCategory(int id)
+    public bool DeleteCategory(int id)
     {
         try
         {
+           
+            var existingCategory = _categoryRepository.Get(x => x.Id == id);
+
+         
+            if (existingCategory == null)
+            {
+                return false;
+            }
+
             _categoryRepository.Delete(x => x.Id == id);
             return true;
         }
         catch (Exception ex)
-        { Debug.WriteLine(ex.Message);
+        {
+            Debug.WriteLine(ex.Message);
             return false;
         }
-      
     }
 }
 

@@ -26,10 +26,6 @@ public partial class AppDBContext : DbContext
 
     public virtual DbSet<TireService> TireServices { get; set; }
 
-    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-
-    //    => optionsBuilder.UseSqlServer("Data Source=LAPTOP-r9tim88l;Initial Catalog=ProdCatalog;Integrated Security=True;Trust Server Certificate=True");
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Price>(entity =>

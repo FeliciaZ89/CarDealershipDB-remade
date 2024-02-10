@@ -1,10 +1,14 @@
-﻿
+﻿using CarDealershipDB.Context;
 using CarDealershipDB.Entities;
-using CarDealershipDB.Context;
+
 
 namespace CarDealershipDB.Repositories;
 
-public class PricesRepository(AppDBContext context) :GeneralRepo<Price>(context)
+public class PricesRepository : GeneralRepo<Price>
 {
+    public PricesRepository(AppDBContext context) : base(context)
+    {
+    }
 
 }
+

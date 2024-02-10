@@ -15,6 +15,7 @@ namespace CarDealershipDB.Services
         {
             try
             {
+
                 var tireInventoryEntity = new TireInventory { Quantity = quantity };
                 tireInventoryEntity = _tireRepository.Create(tireInventoryEntity);
                 return tireInventoryEntity;

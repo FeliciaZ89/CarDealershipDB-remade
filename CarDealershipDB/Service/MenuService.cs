@@ -109,6 +109,23 @@ namespace CarDealershipDB.Service
                 Console.ReadKey();
 
             }
+
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Product already exists!");
+                Console.WriteLine("1. Try again");
+                Console.WriteLine("2. Go back to previous menu");
+                Console.Write("Enter your choice: ");
+                var choice = Console.ReadLine();
+
+                if (choice == "1")
+                {
+                    CreateProduct_Menu(); 
+                }
+                 
+            }
+
         }
 
         public void GetAllProducts_Menu()
@@ -238,43 +255,47 @@ namespace CarDealershipDB.Service
         public void CreateCustomer_Menu()
         {
             Console.Clear();
-            Console.WriteLine("*****ADD NEW CUSTOMER *****");
-            Console.Write("Firstname:");
+            Console.WriteLine("***** ADD NEW CUSTOMER *****");
+            Console.Write("Firstname: ");
             var firstName = Console.ReadLine()!;
-            Console.Write("Lastname:");
+            Console.Write("Lastname: ");
             var lastName = Console.ReadLine()!;
-            Console.Write("Email address:");
+            Console.Write("Email address: ");
             var email = Console.ReadLine()!;
-            Console.Write("Phone number:");
+            Console.Write("Phone number: ");
             var phoneNumber = Console.ReadLine()!;
-            Console.Write("Street name:");
+            Console.Write("Street name: ");
             var streetName = Console.ReadLine()!;
-            Console.Write("Postal code:");
+            Console.Write("Postal code: ");
             var postalCode = Console.ReadLine()!;
-            Console.Write("City:");
+            Console.Write("City: ");
             var city = Console.ReadLine()!;
-            Console.Write("Car make:");
+            Console.Write("Car make: ");
             var make = Console.ReadLine()!;
-            Console.WriteLine("Car model:");
+            Console.Write("Car model: ");
             var model = Console.ReadLine()!;
-            Console.Write("Fabrication year:");
+            Console.Write("Fabrication year: ");
             var year = int.Parse(Console.ReadLine()!);
-            Console.Write("Category:");
+            Console.Write("Category: ");
             var categoryName = Console.ReadLine()!;
-            Console.Write("Price:");
+            Console.Write("Price: ");
             var sellingPrice = decimal.Parse(Console.ReadLine()!);
 
             var result = _customerService.CreateCustomer(firstName, lastName, email, phoneNumber, streetName, postalCode, city, make, model, year, categoryName, sellingPrice);
             if (result != null)
             {
                 Console.Clear();
-                Console.WriteLine("New customer succsefully added to the database.");
-                Console.ReadKey();
-
+                Console.WriteLine("New customer successfully added to the database.");
             }
-
-
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Customer registration failed. Email already exists.");
+            }
+            Console.WriteLine("Press any key to return to the main menu.");
+            Console.ReadKey();
         }
+
 
         public void GetAllCustomers_Menu()
         {

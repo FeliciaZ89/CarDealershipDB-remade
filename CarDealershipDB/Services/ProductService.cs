@@ -15,8 +15,23 @@ namespace CarDealershipDB.Services
         {
             try
             {
+                var existingProduct = _productRepository.Get(p => p.Make == make && p.Model == model && p.Year == year /* Add additional criteria here */);
+
+                if (existingProduct != null)
+                {
+                   
+                    Debug.WriteLine("Product with the same characteristics already exists.");
+                    return null!;
+                }
                 var categoryEntity = _categoryService.CreateCategory(categoryName);
                 var priceEntity = _priceService.CreatePrice(sellingPrice);
+
+                if (categoryEntity == null || priceEntity == null)
+                {
+ 
+                    throw new Exception("Category or price could not be created.");
+                }
+
                 var productEntity = new ProductEntity
                 {
                     Make = make,
@@ -30,7 +45,9 @@ namespace CarDealershipDB.Services
                 return productEntity;
             }
             catch (Exception ex)
-            { Debug.WriteLine(ex.Message); }
+            {
+                Debug.WriteLine(ex.Message);
+            }
             return null!;
         }
 
@@ -91,4 +108,7 @@ namespace CarDealershipDB.Services
         }
 
     }
+
+
+
 }

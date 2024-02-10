@@ -1,4 +1,5 @@
 ﻿using CarDealershipDB.Context;
+using CarDealershipDB.Entities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -25,6 +26,8 @@ public class GeneralRepo<TEntity>(AppDBContext context) where TEntity : class
     {
         try
         {
+          
+
             _context.Set<TEntity>().Add(entity);
             _context.SaveChanges();
             return entity;
@@ -34,8 +37,8 @@ public class GeneralRepo<TEntity>(AppDBContext context) where TEntity : class
             Debug.WriteLine(ex.Message);
         }
         return null!;
-
     }
+
 
     //Read
     /// <summary>
@@ -51,10 +54,10 @@ public class GeneralRepo<TEntity>(AppDBContext context) where TEntity : class
         catch (Exception ex)
         {
             Debug.WriteLine(ex.Message);
+            throw; // rethrow the exception
         }
-        return null!;
-
     }
+    //READ
     /// <summary>
     /// Retrieves a single entity of type TEntity..
     /// </summary>
