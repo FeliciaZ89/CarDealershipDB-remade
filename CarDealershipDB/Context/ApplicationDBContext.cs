@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CarDealershipDB.Context;
 
-public partial class AppDBContext : DbContext
+public partial class ApplicationDBContext : DbContext
 {
-    public AppDBContext()
+    public ApplicationDBContext()
     {
     }
 
-    public AppDBContext(DbContextOptions<AppDBContext> options)
+    public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options)
         : base(options)
     {
     }

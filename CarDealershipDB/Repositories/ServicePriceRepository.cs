@@ -4,7 +4,7 @@ using CarDealershipDB.Context;
 
 namespace CarDealershipDB.Repositories;
 
-public class ServicePriceRepository(AppDBContext context) : GeneralRepo<ServicePrice>(context)
+public class ServicePriceRepository(ApplicationDBContext context) : GeneralRepo<ServicePrice>(context)
 {
 
 }

@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 
 public class TiresRepository : GeneralRepo<Tire>
 {
-    public TiresRepository(AppDBContext context) : base(context) { }
+    public TiresRepository(ApplicationDBContext context) : base(context) { }
 
     public override Tire Get(Expression<Func<Tire, bool>> expression)
     {

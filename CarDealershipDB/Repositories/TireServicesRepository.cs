@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CarDealershipDB.Repositories;
 
-public class TireServicesRepository(AppDBContext context) : GeneralRepo<TireService>(context)
+public class TireServicesRepository(ApplicationDBContext context) : GeneralRepo<TireService>(context)
 {
     public override TireService Get(Expression<Func<TireService, bool>> expression)
     {

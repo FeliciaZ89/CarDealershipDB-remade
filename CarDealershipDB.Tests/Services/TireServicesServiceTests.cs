@@ -13,8 +13,8 @@ namespace CarDealershipDB.Tests.Services;
 
 public class TireServicesServiceTests
 {
-    private readonly AppDBContext _context =
-        new(new DbContextOptionsBuilder<AppDBContext>()
+    private readonly ApplicationDBContext _context =
+        new(new DbContextOptionsBuilder<ApplicationDBContext>()
             .UseInMemoryDatabase($"{Guid.NewGuid()}")
             .Options);
 

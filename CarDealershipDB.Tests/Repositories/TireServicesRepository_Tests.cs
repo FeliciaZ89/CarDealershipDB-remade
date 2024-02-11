@@ -10,15 +10,15 @@ namespace CarDealershipDB.Tests.Repositories
 {
     public class TireServicesRepository_Tests
     {
-        private AppDBContext _context;
+        private ApplicationDBContext _context;
         private TireServicesRepository _repo;
 
         public TireServicesRepository_Tests()
         {
-            var options = new DbContextOptionsBuilder<AppDBContext>()
+            var options = new DbContextOptionsBuilder<ApplicationDBContext>()
                 .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
                 .Options;
-            _context = new AppDBContext(options);
+            _context = new ApplicationDBContext(options);
             _repo = new TireServicesRepository(_context);
         }
 

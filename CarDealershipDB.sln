@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarDealershipDB", "CarDealershipDB\CarDealershipDB.csproj", "{9A6CF493-93A9-4086-BC56-55FB5B00FF6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "CarDealershipDB\Infrastructure.csproj", "{9A6CF493-93A9-4086-BC56-55FB5B00FF6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarDealershipDB.Tests", "CarDealershipDB.Tests\CarDealershipDB.Tests.csproj", "{12509552-BF6B-41CB-9FF7-02E857EB203E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Tests", "CarDealershipDB.Tests\Infrastructure.Tests.csproj", "{12509552-BF6B-41CB-9FF7-02E857EB203E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

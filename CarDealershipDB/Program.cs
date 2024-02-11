@@ -13,7 +13,7 @@ public class Program
         var builder = Host.CreateDefaultBuilder().ConfigureServices(services =>
         {
             services.AddDbContext<DataContext>(x => x.UseSqlServer(@"Data Source=LAPTOP-R9TIM88L;Initial Catalog=CustomerDB;Integrated Security=True;Pooling=False;Encrypt=True;Trust Server Certificate=True"));
-            services.AddDbContext<AppDBContext>(x => x.UseSqlServer(@"Data Source=LAPTOP-r9tim88l;Initial Catalog=ProdCatalog;Integrated Security=True;Encrypt=True;Trust Server Certificate=True"));
+            services.AddDbContext<ApplicationDBContext>(x => x.UseSqlServer(@"Data Source=LAPTOP-r9tim88l;Initial Catalog=ProdCatalog;Integrated Security=True;Encrypt=True;Trust Server Certificate=True"));
           
             services.AddScoped<AddressRepository>();
             services.AddScoped<CategoryRepository>();

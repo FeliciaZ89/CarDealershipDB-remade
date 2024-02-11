@@ -12,9 +12,9 @@ namespace CarDealershipDB.Repositories;
 
 
 
-public class GeneralRepo<TEntity>(AppDBContext context) where TEntity : class
+public class GeneralRepo<TEntity>(ApplicationDBContext context) where TEntity : class
 {
-    protected readonly AppDBContext _context = context;
+    protected readonly ApplicationDBContext _context = context;
 
     //Create
     /// <summary>

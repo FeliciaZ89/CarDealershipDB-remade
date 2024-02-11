@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CarDealershipDB.Repositories;
 
-public class TireInventoryRepository(AppDBContext context) : GeneralRepo<TireInventory>(context)
+public class TireInventoryRepository(ApplicationDBContext context) : GeneralRepo<TireInventory>(context)
 {
 
 }
